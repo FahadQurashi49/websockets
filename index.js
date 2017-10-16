@@ -14,4 +14,7 @@ var io = socket(server);
 
 io.on("connection", function name(socket) {
    console.log("connection established!", socket.id); 
+   socket.on('chat', function (data) {
+       io.sockets.emit('chat', data); 
+   });
 });
